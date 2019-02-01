@@ -2,5 +2,5 @@
 
 Designed for laravel blog from udemy course
 
-Course link: [![Maintainability]()](https://www.udemy.com/best-laravel/)
+Course link: https://www.udemy.com/best-laravel/
 
