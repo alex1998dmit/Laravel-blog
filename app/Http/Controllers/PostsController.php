@@ -7,6 +7,8 @@ use App\Tag;
 use App\Category;
 use App\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+// use Session;
 
 
 class PostsController extends Controller

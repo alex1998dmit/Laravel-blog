@@ -45,50 +45,51 @@
                 <article class="hentry post post-standard has-post-thumbnail sticky">
 
                     <div class="post-thumb">
-                        <img src="{{ $first_post->featured }}" alt="{{ $first_post->title }}">
-                        <div class="overlay"></div>
-                        <a href="{{ $first_post->featured }}" class="link-image js-zoom-image">
-                            <i class="seoicon-zoom"></i>
-                        </a>
-                        <a href="#" class="link-post">
-                            <i class="seoicon-link-bold"></i>
-                        </a>
-                    </div>
-
-                    <div class="post__content">
-
-                        <div class="post__content-info">
-
-                            <h2 class="post__title entry-title text-center ">
-                                <a href="{{route('post.single', ['slug' => $first_post->slug]) }}">{{ $first_post->title }}</a>
-                            </h2>
-
-                            <div class="post-additional-info">
-
-                                        <span class="post__date">
-
-                                            <i class="seoicon-clock"></i>
-
-                                            <time class="published" datetime="2016-04-17 12:00:00">
-                                                {{ $first_post->created_at->diffForHumans() }}
-                                            </time>
-
-                                        </span>
-
-                                <span class="category">
-                                            <i class="seoicon-tags"></i>
-                                            <a href="{{ route('category.single', ['id' =>$first_post->category]) }}">{{ $first_post->category->name }}</a>
-                                        </span>
-
-                                <span class="post__comments">
-                                            <a href=""><i class="fa fa-comment-o" aria-hidden="true"></i></a>
-                                            6
-                                        </span>
-
-                            </div>
+                        @if (!is_null($first_post))
+                            <img src="{{ $first_post->featured }}" alt="{{ $first_post->title }}">
+                            <div class="overlay"></div>
+                            <a href="{{ $first_post->featured ?? null }}" class="link-image js-zoom-image">
+                                <i class="seoicon-zoom"></i>
+                            </a>
+                            <a href="#" class="link-post">
+                                <i class="seoicon-link-bold"></i>
+                            </a>
                         </div>
-                    </div>
 
+                            <div class="post__content">
+
+                                <div class="post__content-info">
+
+                                    <h2 class="post__title entry-title text-center ">
+                                        <a href="{{route('post.single', ['slug' => $first_post->slug ?? null]) }}">{{ $first_post->title ?? null }}</a>
+                                    </h2>
+
+                                    <div class="post-additional-info">
+
+                                                <span class="post__date">
+
+                                                    <i class="seoicon-clock"></i>
+
+                                                    <time class="published" datetime="2016-04-17 12:00:00">
+        {{--                                                {{ $first_post->created_at->diffForHumans() ?? null }}--}}
+                                                    </time>
+
+                                                </span>
+
+                                        <span class="category">
+                                                    <i class="seoicon-tags"></i>
+        {{--                                            <a href="{{ route('category.single', ['id' =>$first_post->category]) }}">{{ $first_post->category->name }}</a>--}}
+                                                </span>
+
+                                        <span class="post__comments">
+                                                    <a href=""><i class="fa fa-comment-o" aria-hidden="true"></i></a>
+                                                    6
+                                                </span>
+
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
                 </article>
             </div>
             <div class="col-lg-2"></div>
@@ -96,14 +97,15 @@
 
         <div class="row">
             <div class="col-lg-6">
+                @if (!is_null($second_post))
                 <article class="hentry post post-standard has-post-thumbnail sticky">
 
                     <div class="post-thumb">
                         <img src="{{ $second_post->featured }}" alt="seo">
                         <div class="overlay"></div>
-                        <a href="{{$second_post->featured}}" class="link-image js-zoom-image">
-                            <i class="seoicon-zoom"></i>
-                        </a>
+{{--                        <a href="{{$second_post->featured}}" class="link-image js-zoom-image">--}}
+{{--                            <i class="seoicon-zoom"></i>--}}
+{{--                        </a>--}}
                         <a href="#" class="link-post">
                             <i class="seoicon-link-bold"></i>
                         </a>
@@ -144,10 +146,12 @@
                     </div>
 
                 </article>
+                @endif
             </div>
             <div class="col-lg-6">
+                @if (!is_null($third_post))
                 <article class="hentry post post-standard has-post-thumbnail sticky">
-
+    
                     <div class="post-thumb">
                         <img src="{{ $third_post->featured }}" alt="seo">
                         <div class="overlay"></div>
@@ -158,42 +162,43 @@
                             <i class="seoicon-link-bold"></i>
                         </a>
                     </div>
-
+    
                     <div class="post__content">
-
+    
                         <div class="post__content-info">
-
+    
                             <h2 class="post__title entry-title text-center ">
                                 <a href="15_blog_details.html">{{ $third_post->title }}</a>
                             </h2>
-
+    
                             <div class="post-additional-info">
-
+    
                                         <span class="post__date">
-
+    
                                             <i class="seoicon-clock"></i>
-
+    
                                             <time class="published" datetime="2016-04-17 12:00:00">
                                                 {{ $third_post->created_at->diffForHumans() }}
                                             </time>
-
+    
                                         </span>
-
+    
                                 <span class="category">
                                             <i class="seoicon-tags"></i>
                                             <a href="{{ route('category.single', ['id' =>$third_post->category]) }}">{{  $third_post->category->name}}</a>
                                         </span>
-
+    
                                 <span class="post__comments">
                                                 <i class="fa fa-comment-o" aria-hidden="true"></i></a>
                                             6
                                         </span>
-
+    
                             </div>
                         </div>
                     </div>
-
+    
                 </article>
+                @endif
             </div>
         </div>
     </div>
@@ -207,18 +212,19 @@
                         <div class="row">
                             <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
                                 <div class="heading">
-                                    <h4 class="h1 heading-title">{{ $stranger_things->name }}</h4>
-                                    <div class="heading-line">
-                                        <span class="short-line"></span>
-                                        <span class="long-line"></span>
-                                    </div>
-
+                                    @if($category_second)
+                                        <h4 class="h1 heading-title">{{ $category_second->name }}</h4>
+                                        <div class="heading-line">
+                                            <span class="short-line"></span>
+                                            <span class="long-line"></span>
+                                        </div>
+                                    @endif
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="case-item-wrap">
-                                @foreach($stranger_things->posts()->OrderBy('created_at', 'desc')->take(3)->get() as $post)
+                                @foreach($category_second->posts()->OrderBy('created_at', 'desc')->take(3)->get() as $post)
 
                                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
 
@@ -237,18 +243,7 @@
                     <div class="padded-50"></div>
                     <div class="offers">
                         <div class="row">
-                            <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
-                                <div class="heading">
-                                    <h4 class="h1 heading-title">{{ $friends->name }}</h4>
-                                    <div class="heading-line">
-                                        <span class="short-line"></span>
-                                        <span class="long-line"></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            @foreach($stranger_things->posts()->OrderBy('created_at', 'desc')->take(3)->get() as $post)
+                            @foreach($category_second->posts()->OrderBy('created_at', 'desc')->take(3)->get() as $post)
 
                                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
 

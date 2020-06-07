@@ -12,7 +12,7 @@
 
                   <div class="panel-body text-center">
 
-                      <h1 class="text-center">{{ $posts_count }}</h1>
+                     <h1 class="text-center">{{ $posts_count }}</h1>
 
                   </div>
 
@@ -26,12 +26,12 @@
               <div class="panel panel-danger">
 
                   <div class="panel-heading">
-                      Trahshed POSTS
+                      Tags
                   </div>
 
                   <div class="panel-body text-center">
 
-                      <h1 class="text-center">{{ $trashed_count }}</h1>
+                     <h1 class="text-center">{{ $tags_count }}</h1>
 
                   </div>
 
@@ -50,7 +50,7 @@
 
                   <div class="panel-body text-center">
 
-                      <h1 class="text-center">{{ $users_count }}</h1>
+                     <h1 class="text-center">{{ $users_count }}</h1>
 
                   </div>
 
@@ -69,7 +69,7 @@
 
                   <div class="panel-body text-center">
 
-                      <h1 class="text-center">{{ $categories_count }}</h1>
+                     <h1 class="text-center">{{ $categories_count }}</h1>
 
                   </div>
 

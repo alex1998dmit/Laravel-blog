@@ -9,12 +9,8 @@ Route::get('/test', function () {
 });
 
 Route::get('/', [
-
 'uses' => 'FrontEndController@index',
-
 'as' => 'index'
-
-
 ]);
 
 Route::get('/results', function(){
@@ -67,10 +63,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 
     Route::get('/dashboard', [
 
-      'uses' =>'HomeController@index',
+      'uses' =>'AdminController@dashboard',
 
-        'as'=>'home'
-
+      'as'=>'dashobard'
     ]);
 
 
